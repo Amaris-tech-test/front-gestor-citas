@@ -1,0 +1,31 @@
+@use '../../styles/variables.scss';
+
+.errorMessage {
+  color: variables.$danger;
+  display: flex;
+  align-items: center;
+  font-size: 1.63vh;
+  margin: 1vh 0;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.errorResponsive {
+  width: 80%;
+  margin: auto;
+}
+
+.errorMessResp {
+  margin: 0;
+}
+
+@media (min-width: 481px) and (max-width: 960px) {
+  .errorResponsive {
+    width: 60%;
+    margin: auto;
+  }
+  .errorMessResp {
+    font-size: 11px;
+    margin: 0;
+  }
+}

@@ -1,0 +1,11 @@
+@use '../../styles/variables.scss';
+
+.cardContainer {
+  max-width: 360px;
+  max-height: 360px;
+  border: 1px solid variables.$purple;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  border-radius: 20px; 
+
+}

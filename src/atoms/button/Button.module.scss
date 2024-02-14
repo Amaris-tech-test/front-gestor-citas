@@ -1,0 +1,79 @@
+@use '../../styles/variables.scss';
+
+.baseButton {
+  min-width: 127px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 33px;
+  border-radius: 100px;
+}
+
+.contained {
+  border: 1px solid;
+}
+
+.contained.primary {
+  background-color: variables.$darkPurple;
+  border-color: variables.$darkPurple;
+}
+
+
+.contained,
+.primary,
+.secondary {
+  color: variables.$white;
+}
+
+.text {
+  border: none;
+  background-color: transparent;
+  gap: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  text-transform: uppercase;
+  height: 20px;
+  font-weight: bold;
+}
+
+.text.primary {
+  color: variables.$darkPurple;
+}
+
+
+.outlined {
+  border: 1.5px solid;
+  
+}
+
+.outlined {
+  background-color: transparent;
+}
+
+.outlined.primary {
+  color: variables.$darkPurple ;
+  border-color: variables.$darkGrey;
+}
+
+
+.outlined.disabled {
+  background-color: transparent;
+  border-color: variables.$darkGrey;
+  color: variables.$darkGrey;
+}
+
+.disabled {
+  background-color: grey;
+  color: white;
+  border-color: grey;
+  cursor: initial;
+}
+
+@media (max-width: 1024px) {
+  .baseButton {
+    font-size: 12px;
+  }
+}

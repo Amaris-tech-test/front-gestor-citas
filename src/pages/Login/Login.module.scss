@@ -1,0 +1,15 @@
+@use '../../styles/variables.scss';
+
+.formContainer {
+  width: 400px;
+  height:auto ;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border : 0.7 solid variables.$lightGrey;
+  padding: 40px;
+  border-radius: 50px;
+  box-shadow: 0 0 11px rgba(120, 135, 160, 0.25);
+  background-color: variables.$white;
+}

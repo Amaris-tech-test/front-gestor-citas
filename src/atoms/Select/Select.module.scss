@@ -1,0 +1,31 @@
+@use '../../styles/variables.scss';
+
+.selectoption {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.selectContainer {
+  color: variables.$lightBlack;
+  border: none;
+  border-bottom: 1px solid;
+  border-color: rgba(210, 217, 233, 1);
+  padding: 0.5rem;
+  outline-color: variables.$darkPurple;;
+  width: 100%;
+  background-color: white;
+}
+
+
+.label {
+  color: variables.$lightBlack;
+  font-size: 2vh;
+  margin-bottom: 2vh;
+  margin-top: 4vh;
+  max-width: 240px;
+  margin-left: 1vh;
+  font-weight: 500;
+}
+

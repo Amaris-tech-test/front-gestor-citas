@@ -1,0 +1,22 @@
+@use '../../styles/variables.scss';
+
+.navbar {
+  width: 100%;
+  background-color: #FEF7FF;
+  box-shadow: 2px 0px 3px 0px rgba(181,181,181,1);
+  height: calc(100vh - 56px);
+  box-sizing: border-box;
+}
+
+.title{
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+.linksOptions{
+  padding: 20px;
+  border-top: 1px solid variables.$lightGrey ;
+  border-bottom: 1px solid variables.$lightGrey ;
+}

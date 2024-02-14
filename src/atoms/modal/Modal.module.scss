@@ -1,0 +1,55 @@
+.overlayBackground {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(23, 23, 23, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  animation-name: fadeIn;
+}
+
+.modalContainer {
+  position: relative;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  background-color: #ffffff;
+
+  padding: 50px 30px;
+}
+
+.modalLarge {
+  width: 736px;
+}
+
+.modalMedium {
+  width: 680px;
+}
+
+.modalSmall {
+  width: 480px;
+}
+
+.modalXS {
+  width: 370px;
+}
+.closeButton {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

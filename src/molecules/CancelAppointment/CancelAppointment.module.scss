@@ -1,0 +1,22 @@
+@use '../../styles/variables.scss';
+
+.cancelContainer{
+  color: variables.$black;
+
+  .cancelTitle {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  
+  p {
+    font-size: 14px;
+    color: variables.$lightBlack;
+  }
+}
+
+.buttonContainer{
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}

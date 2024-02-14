@@ -1,0 +1,29 @@
+@use '../../styles/variables.scss';
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0px auto; 
+  justify-content: center;
+  height: 100%;
+  gap: 40px;
+}
+
+.titleAppointmentForm {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.optionsFormContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+
+.buttonsContainer{
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}

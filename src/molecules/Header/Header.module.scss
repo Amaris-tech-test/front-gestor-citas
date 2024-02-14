@@ -1,0 +1,8 @@
+@use '../../styles/variables.scss';
+
+.header{
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  background-color: variables.$lila;
+}
