@@ -21,10 +21,13 @@
 
 
 .contained,
-.primary,
-.secondary {
+.primary{
   color: variables.$white;
 }
+
+.secondary {
+  color: variables.$lightBlack;
+} 
 
 .text {
   border: none;

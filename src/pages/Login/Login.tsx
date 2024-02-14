@@ -24,7 +24,11 @@ export const Login: React.FC = () => {
         password: Yup.string().required("Campo requerido"),
       })}
       onSubmit={async (values) => {
-        const data = await validateFetch("post", `user/login`, values);
+        const data = await validateFetch({
+          type: "post",
+          url: `user/login`,
+          data: values,
+        });
         if(data.statusCode === 200) {
           const token = data.data.token;
           const user = {

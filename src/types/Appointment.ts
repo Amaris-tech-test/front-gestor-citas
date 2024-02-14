@@ -15,11 +15,18 @@ export interface AppointmentContextType {
   setAppointmentSelected: React.Dispatch<React.SetStateAction<AppointmentItem | undefined>>;
   listSpecialties: Specialty[],
   setListSpecialities:React.Dispatch<React.SetStateAction<Specialty[]>>;
+  isEditing: boolean,
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  initialValues: FormValues;
+  setiInitialValues:React.Dispatch<React.SetStateAction<FormValues>>;
+  idEditAppointment: string,
+  setIdEditAppointment: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface doctorInfo {
   name:string;
   lastname:string;
+  id?:string;
 }
 
 export interface userInfo {
@@ -28,6 +35,7 @@ export interface userInfo {
 }
 export interface specialtyInfo {
   specialty:string;
+  id?:string;
 }
 
 export interface Specialty {
@@ -39,8 +47,8 @@ export interface Specialty {
 export interface FormValues {
   dateAppointment: string;
   timeAppointment: string;
-  specialty:string;
-  doctor:string
+  specialty:string | undefined;
+  doctor:string | undefined;
 }
 
 export interface SubmitFunction {

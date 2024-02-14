@@ -15,7 +15,6 @@ export const Protected: React.FC<ProtectedProps> = ( {children}) => {
 
   useEffect(() => {
     if (loaded) return;
-    console.log(isLoggedIn())
     if (!isLoggedIn()) logout();
     SetLoaded(true);
   }, [loaded, navigate]);

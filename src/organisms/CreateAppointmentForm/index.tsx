@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -14,8 +14,9 @@ import { AppointmentContext } from "../../context/AppointmentContext/Appointment
 import { AppointmentForm } from "../../types/Appointment";
 
 export const CreateAppointmentForm: React.FC<AppointmentForm> = ({handleSubmit}) => {
+  const token: string | null = localStorage.getItem("token");
   const navigate = useNavigate();
-  const { listSpecialties } = useContext(AppointmentContext);
+  const { listSpecialties, isEditing, initialValues } = useContext(AppointmentContext);
   const [listDoctors, setListDoctors] = useState([]);
   const today = new Date().toISOString().split("T")[0];
   const generateOptions = () => {
@@ -40,23 +41,27 @@ export const CreateAppointmentForm: React.FC<AppointmentForm> = ({handleSubmit})
   };
 
   const getDoctorsBySpecialty = async (specialtyId: string) => {
-    const data = await validateFetch(
-      "get",
-      `doctor/doctorBySpecialty/${specialtyId}`
+    const data = await validateFetch({
+      type: "get",
+      url: `doctor/doctorBySpecialty/${specialtyId}`,
+      data: null,
+      accessToken: token,
+    }
+      
     );
     if (data.statusCode === 200) {
       setListDoctors(data.data);
     }
   };
 
+
+  useEffect(() => {
+    initialValues.specialty && getDoctorsBySpecialty(initialValues.specialty)
+  },[])
+
   return (
     <Formik
-      initialValues={{
-        dateAppointment: "",
-        timeAppointment: "",
-        specialty: "",
-        doctor: "",
-      }}
+      initialValues={initialValues}
       validationSchema={Yup.object({
         dateAppointment: Yup.string().required(
           "Olvidaste diligenciar este campo"
@@ -72,7 +77,7 @@ export const CreateAppointmentForm: React.FC<AppointmentForm> = ({handleSubmit})
     >
       {({ setFieldValue }) => (
         <Form className={styles.formContainer}>
-          <h3 className={styles.titleAppointmentForm}>Crear cita</h3>
+          <h3 className={styles.titleAppointmentForm}> {isEditing ? 'Actualizar cita' : 'Crear cita'}</h3>
           <section className={styles.optionsFormContainer}>
             <Input
               type="date"

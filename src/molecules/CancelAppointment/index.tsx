@@ -13,8 +13,12 @@ interface CancelProps {
 
 export const CancelAppointment = ({ cancelOption }: CancelProps) => {
   const { appointmentSelected }: AppointmentContextType =useContext(AppointmentContext);
+  const idUser= localStorage.getItem("id");
+  const token:string | null = localStorage.getItem('token');
+  
   const appointment = useAppointment({
-     id: "94be206d-2e02-49a5-b02b-29325e0037fb",
+     id: idUser,
+     token
   });
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState(false);
@@ -26,14 +30,17 @@ export const CancelAppointment = ({ cancelOption }: CancelProps) => {
       status: "cancelada",
     };
 
-    const data = await validateFetch("put", `appointment/update/${id}`, body);
+    const data = await validateFetch({
+      type: "put", 
+      url: `appointment/update/${id}`,
+      data: body,
+      accessToken: token
+    });
     if (data.statusCode === 200) {
       await appointment.getDataAppointment();
       setLoading(false);
       setNotification(true);
     }
-
-    console.log(data);
   };
 
   return (

@@ -3,7 +3,6 @@ import { jwtDecode } from "jwt-decode";
 export function isLoggedIn(): boolean {
 
   const token = localStorage.getItem('token');
-  console.log(token)
   return !token || isTokenExpired(token) ? false : true;
 }
 

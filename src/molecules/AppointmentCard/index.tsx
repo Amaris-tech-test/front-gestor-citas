@@ -6,18 +6,35 @@ import { AppointmentContextType, AppointmentItem } from "../../types/Appointment
 import { CancelAppointment } from '../CancelAppointment/index';
 import styles from "./AppointmentCard.module.scss";
 import { AppointmentContext } from "../../context/AppointmentContext/AppointmentContext";
+import { useNavigate } from "react-router-dom";
 
 interface props {
   data: AppointmentItem;
 }
 
 export const AppointmentCard = ({ data }: props) => {
+ const navigate = useNavigate();
  const [isOpen, setIsOpen]  = useState(false);
- const { setAppointmentSelected }: AppointmentContextType =useContext(AppointmentContext);
+ const { setAppointmentSelected, setIsEditing, setiInitialValues,setIdEditAppointment}: AppointmentContextType =useContext(AppointmentContext);
 
   const cancelAppointmentModal = async(data :AppointmentItem) => {
     await setAppointmentSelected(data);
     setIsOpen(true);
+  }
+
+  const updateAppointment = async(id:string) => {
+    
+    const dateOption = new Date(data.appointmentDate);
+    setIdEditAppointment(id);
+    await  setiInitialValues({
+      dateAppointment: dateOption.toISOString().split('T')[0],
+      timeAppointment: dateOption.toISOString().split('T')[1].split(".")[0],
+      specialty: data.specialty.id,
+      doctor: data.doctor.id,
+    })
+
+    setIsEditing(true);
+    navigate('/actualizarCita')
   }
 
   return (
@@ -41,7 +58,7 @@ export const AppointmentCard = ({ data }: props) => {
             Cancelar
           </Button>
 
-          <Button type="button" variant="contained" color="primary">
+          <Button type="button" variant="contained" color="primary" onClick={()=>updateAppointment(data.id)}>
             Actualizar
           </Button>
         </div>

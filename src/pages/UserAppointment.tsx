@@ -2,13 +2,13 @@ import { useEffect } from "react";
 
 import { AppointmentList } from "../organisms/AppointmentList";
 import { useAppointment } from "../hooks/useAppointment";
-import { useAuth } from "../hooks/useAuth";
 
 export const UserAppointment = () => {
-  const { user } = useAuth();
+  
   const token:string | null = localStorage.getItem('token');
+  const idUser:string | null = localStorage.getItem("id");
   const appointment = useAppointment({
-    id: user?.id,
+    id: idUser,
     token
   });
 
@@ -16,5 +16,5 @@ export const UserAppointment = () => {
     appointment.getDataAppointment();
   }, []);
 
-  return <div>{appointment.isLoading ? "cargando" : <AppointmentList />}</div>;
+  return <>{appointment.isLoading ? "cargando" : <AppointmentList />}</>;
 };

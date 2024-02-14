@@ -16,7 +16,27 @@
 }
 
 .linksOptions{
-  padding: 20px;
+  // padding: 20px;
   border-top: 1px solid variables.$lightGrey ;
   border-bottom: 1px solid variables.$lightGrey ;
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  a {
+    padding: 20px;
+    text-decoration: none;
+    color:variables.$black;
+  }
+
+  a:hover {
+    background-color: variables.$lightGrey;
+  }
+}
+
+.logout {
+  padding: 20px 10px;
 }

@@ -4,7 +4,7 @@ import { validateFetch } from "../utils/hooks/validateFetch";
 import { AppointmentContext } from "../context/AppointmentContext/AppointmentContext";
 
 interface Appointment {
-  id: string | undefined;
+  id: string | null;
   token:string | null;
 }
 

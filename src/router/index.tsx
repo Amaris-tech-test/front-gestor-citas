@@ -26,6 +26,14 @@ export const AppRouter = () => {
           </Protected>
         }
       />
+      <Route
+        path="/actualizarCita"
+        element={
+          <Protected>
+            <Admin content={<CreateAppointment />} />
+          </Protected>
+        }
+      />
     </Routes>
   );
 };

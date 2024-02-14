@@ -1,5 +1,6 @@
 import { Button } from "../../atoms/button";
 
+import styles from "./ConfirmAppointment.module.scss";
 interface ConfirmProps {
   handleRedirect: () => void;
 }
@@ -8,7 +9,7 @@ export const ConfirmAppointment: React.FC<ConfirmProps> = ({
   handleRedirect,
 }) => {
   return (
-    <section>
+    <section className={styles.containerConfirm}>
       <h5>Cita creada con éxito.</h5>
       <Button
         type="button"

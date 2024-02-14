@@ -15,6 +15,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     setToken(newToken);
     setUser(user);
     localStorage.setItem("token", newToken);
+    localStorage.setItem("id", user.id);
     navigate('/citas')
   };
 
